@@ -1,0 +1,36 @@
+#1st row
+block1 assets/textures/blocknormal.png 162 162 0 0 0 1
+block2 assets/textures/blocknormal.png 162 162 164 0 0 1
+block3 assets/textures/blocknormal.png 162 162 326 0 0 1
+block4 assets/textures/blocknormal.png 162 162 489 0 0 1
+
+#2nd row
+block5 assets/textures/blocknormal.png 162 162 0 164 0 1
+block6 assets/textures/blocknormal.png 162 162 164 164 0 1
+block7 assets/textures/blocknormal.png 162 162 326 164 0 1
+block8 assets/textures/blocknormal.png 162 162 489 164 0 1
+
+#3rd row
+block9 assets/textures/blocknormal.png 162 162 0 326 0 1
+block10 assets/textures/blocknormal.png 162 162 164 326 0 1
+block11 assets/textures/blocknormal.png 162 162 326 326 0 1
+block12 assets/textures/blocknormal.png 162 162 489 326 0 1
+
+#4th row
+block13 assets/textures/blocknormal.png 162 162 0 489 0 1
+block14 assets/textures/blocknormal.png 162 162 164 489 0 1
+block15 assets/textures/blocknormal.png 162 162 326 489 0 1
+block16 assets/textures/blocknormal.png 162 162 489 489 0 1
+
+#Row & Coloumns separators
+sp1h assets/textures/blockseparator_black.png 650 1 0 163 0 0
+sp2h assets/textures/blockseparator_black.png 650 1 0 325 0 0
+sp3h assets/textures/blockseparator_black.png 650 1 0 488 0 0
+sp1v assets/textures/blockseparator_black.png 1 650 163 0 0 0
+sp2v assets/textures/blockseparator_black.png 1 650 325 0 0 0
+sp2v assets/textures/blockseparator_black.png 1 650 488 0 0 0
+
+#Text
+tlou "2048 by 217eastbroadway" assets/fonts/helvetica_neue_25.ttf 50 255 255 255 0 0 0 1 1
+#ye "Kanye West" assets/fonts/helvetica_neue_65.ttf 50 0 0 0 0 250 250 1 1
+#kernel "root@kernel:~# make linux_i386_rel" assets/fonts/linuxterminal.ttf 15 0 0 0 0 0 100 1 1
