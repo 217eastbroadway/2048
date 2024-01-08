@@ -6,6 +6,7 @@ BUILDNAME = build/game
 
 game: main.o initPrism.o prismFinder.o moveUpdate.o randGeneration.o gameRenderUpdate.o
 	$(CC) main.o initPrism.o prismFinder.o moveUpdate.o randGeneration.o gameRenderUpdate.o -L$(LIBPATH) $(CFLAGS) -o $(BUILDNAME)
+	@echo -e "\033[0;32mProject built successfully!\033[0m"
 
 main.o: src/main.cpp
 	$(CC) src/main.cpp -I$(INCLUDEPATH) -c

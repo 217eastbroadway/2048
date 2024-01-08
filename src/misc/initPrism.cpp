@@ -14,7 +14,7 @@ void initPrism(SDL_Window*& win, SDL_Renderer*& rend, const char* configFile){
     filein >> x;
     filein >> y;
 
-    win = SDL_CreateWindow("Game - [PRISM 0.9] [DEV]", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, x, y, SDL_WINDOW_RESIZABLE);
+    win = SDL_CreateWindow("2048 - [PRISM 0.9] [DEV_ALPHA]", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, x, y, SDL_WINDOW_RESIZABLE);
     if (!win){
         puts("Error creating window.");
         SDL_Quit();

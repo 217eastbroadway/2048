@@ -23,12 +23,12 @@ block15 assets/textures/blocknormal.png 162 162 326 489 0 1
 block16 assets/textures/blocknormal.png 162 162 489 489 0 1
 
 #Row & Coloumns separators
-sp1h assets/textures/blockseparator_black.png 650 1 0 163 0 0
-sp2h assets/textures/blockseparator_black.png 650 1 0 325 0 0
-sp3h assets/textures/blockseparator_black.png 650 1 0 488 0 0
-sp1v assets/textures/blockseparator_black.png 1 650 163 0 0 0
-sp2v assets/textures/blockseparator_black.png 1 650 325 0 0 0
-sp2v assets/textures/blockseparator_black.png 1 650 488 0 0 0
+sp1h assets/textures/blockseparator_white.png 650 1 0 163 0 0
+sp2h assets/textures/blockseparator_white.png 650 1 0 325 0 0
+sp3h assets/textures/blockseparator_white.png 650 1 0 488 0 0
+sp1v assets/textures/blockseparator_white.png 1 650 163 0 0 0
+sp2v assets/textures/blockseparator_white.png 1 650 325 0 0 0
+sp2v assets/textures/blockseparator_white.png 1 650 488 0 0 0
 
 #Text
 tlou "2048 by 217eastbroadway" assets/fonts/helvetica_neue_25.ttf 50 255 255 255 0 0 0 1 1

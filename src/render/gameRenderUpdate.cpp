@@ -1,36 +1,36 @@
 #include "gameRender.h"
 
 namespace gameRender{
-    void updateGraphic(std::vector<pObject*> &vPrism, int vNew[4][4], int vOld[4][4], int width, int height, SDL_Renderer* rend){
+    void updateGraphic(std::vector<pObject*> &vPrism, int v[4][4], int width, int height, SDL_Renderer* rend){
         for(int i = 0; i < height; i++)
             for(int j = 0; j < width; j++){
-                /*
-                if(vNew[i][j] != vOld[i][j]){
-                    //get ready for some really shitty code...
-                    // /vPrism.push_back(new pObject(std::to_string(i + j).c_str(), std::to_string(vNew[i][j]).c_str()))
-                    int index = getObjectIndexByID(vPrism, std::to_string(i + j).c_str());
+                int index = getObjectIndexByID(vPrism, std::string(std::to_string(i+1) + "_" + std::to_string(j+1)).c_str());
 
-                    if(index == -1 && vNew[i][j] != 0) //Graphical rappresentation doesn't exist yet.
-                        vPrism.push_back(new pTextObject(std::to_string(i + j).c_str(), std::to_string(vNew[i][j]).c_str(), "assets/fonts/helvetica_neue_65.ttf", 162, {255, 255, 255, 0}, 162*i, 162*j, false, false, rend));
-                    
-                    else if(index != - 1 && vNew[i][j] == 0){//Graphical rappresentation exists but must be deleted now.
-                        pRender::moveQueue(vPrism, index, vPrism.size()-1);
-                        delete vPrism[vPrism.size()-1];
-                        vPrism.pop_back();
-                    }
-                    else if(index != -1 && vNew[i][j] != 0)//Graphical rappresentation already exists and can be updated.
-                        static_cast<pTextObject*>(vPrism[index])->setText(std::to_string(vNew[i][j]).c_str());
-                }
-                */
-                int index = getObjectIndexByID(vPrism, std::to_string(i + j).c_str());
                 if(index != -1){
+                    std::cout << "Object \"" << vPrism[index]->getID() << "\" was found @ index " << index << std::endl;
                     pRender::moveQueue(vPrism, index, vPrism.size()-1);
                     delete vPrism[vPrism.size()-1];
                     vPrism.pop_back();
                 }
+                
+                if(v[i][j] != 0){
+                    SDL_Color textColor;
+                    switch(v[i][j]){
+                        case 2: textColor = {255, 255, 255, 0}; break;
+                        case 4: textColor = {255, 200, 175, 0}; break;
+                        case 8: textColor = {100, 100, 100, 0}; break;
+                        case 16: textColor = {255, 100, 100, 0}; break;
+                        case 32: textColor = {255, 0, 0, 0}; break;
+                        case 64: textColor = {255, 255, 0, 0}; break;
+                        case 128: textColor = {200, 200, 200, 0}; break;
+                        case 256: textColor = {0, 200, 175, 0}; break;
+                        case 512: textColor = {0, 100, 175, 0}; break;
+                        case 1024: textColor = {0, 100, 100, 0}; break;
+                        case 2048: textColor = {0, 0, 255, 0}; break;
+                    }
 
-                if(vNew[i][j] != 0)
-                    vPrism.push_back(new pTextObject(std::to_string(i + j).c_str(), std::to_string(vNew[i][j]).c_str(), "assets/fonts/helvetica_neue_65.ttf", 50, {255, 255, 255, 0}, 50 * j, 50 * i, false, false, rend));
+                    vPrism.push_back(new pTextObject(std::string(std::to_string(i+1) + "_" + std::to_string(j+1)).c_str(), std::to_string(v[i][j]).c_str(), "assets/fonts/helvetica_neue_65.ttf", 130, textColor, 175*j, 175*i, false, false, rend));
+                }
             }
     }
 }
