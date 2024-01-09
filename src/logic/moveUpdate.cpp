@@ -1,12 +1,14 @@
 #include "gameLogic.h"
 
 namespace gameLogic{
-    void updateGameMatrix(int v[4][4], int width, int height, Direction direct){
+    bool updateGameMatrix(int v[4][4], int width, int height, Direction direct){
+        bool hasMoved = false;
+
         switch(direct){
             case Up:
                 for(int i = 0; i < 4; i++)
-                    for(int j = 3; j >= 0; j--)
-                        for(int x = j-1; x >= 0; x--){
+                        for(int j = 0; j < 4; j++)
+                            for(int x = j+1; x < 4; x++){
                             if(v[x][i] != 0 && v[j][i] != v[x][i])
                                 break;
                             else if(v[j][i] == v[x][i]){
@@ -22,14 +24,15 @@ namespace gameLogic{
                                 if(v[x][i] != 0){
                                     v[j][i] = v[x][i];
                                     v[x][i] = 0;
+                                    hasMoved = true;
                                     break;
                                 }
             break;
 
             case Down:
                 for(int i = 0; i < 4; i++)
-                    for(int j = 0; j < 4; j++)
-                        for(int x = j+1; x < 4; x++){
+                    for(int j = 3; j >= 0; j--)
+                        for(int x = j-1; x >= 0; x--){
                             if(v[x][i] != 0 && v[j][i] != v[x][i])
                                 break;
                             else if(v[j][i] == v[x][i]){
@@ -45,14 +48,15 @@ namespace gameLogic{
                                 if(v[x][i] != 0){
                                     v[j][i] = v[x][i];
                                     v[x][i] = 0;
+                                    hasMoved = true;
                                     break;
                                 }
                 break;
             
             case Left:
             	for(int i = 0; i < 4; i++)
-                    for(int j = 3; j >= 0; j--)
-                        for(int x = j-1; x >= 0; x--){
+                    for(int j = 0; j < 4; j++)
+                        for(int x = j+1; x < 4; x++){
                             if(v[i][x] != 0 && v[i][j] != v[i][x])
                                 break;
                             else if(v[i][j] == v[i][x]){
@@ -68,14 +72,15 @@ namespace gameLogic{
                                 if(v[i][x] != 0){
                                     v[i][j] = v[i][x];
                                     v[i][x] = 0;
+                                    hasMoved = true;
                                     break;
                                 }
             break;
 
             case Right:
             	for(int i = 0; i < 4; i++)
-                    for(int j = 0; j < 4; j++)
-                        for(int x = j+1; x < 4; x++){
+                    for(int j = 3; j >= 0; j--)
+                        for(int x = j-1; x >= 0; x--){
                             if(v[i][x] != 0 && v[i][j] != v[i][x])
                                 break;
                             else if(v[i][j] == v[i][x]){
@@ -91,9 +96,12 @@ namespace gameLogic{
                                 if(v[i][x] != 0){
                                     v[i][j] = v[i][x];
                                     v[i][x] = 0;
+                                    hasMoved = true;
                                     break;
                                 }
             break;
         }
+
+        return hasMoved;
     }
 }
