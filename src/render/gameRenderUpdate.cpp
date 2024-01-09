@@ -15,6 +15,7 @@ namespace gameRender{
                 
                 if(v[i][j] != 0){
                     SDL_Color textColor;
+					int textSize = 130;
                     switch(v[i][j]){
                         case 2: textColor = {255, 255, 255, 0}; break;
                         case 4: textColor = {255, 200, 175, 0}; break;
@@ -28,8 +29,12 @@ namespace gameRender{
                         case 1024: textColor = {0, 100, 100, 0}; break;
                         case 2048: textColor = {0, 0, 255, 0}; break;
                     }
-
-                    vPrism.push_back(new pTextObject(std::string(std::to_string(i+1) + "_" + std::to_string(j+1)).c_str(), std::to_string(v[i][j]).c_str(), "assets/fonts/helvetica_neue_65.ttf", 130, textColor, 175*j, 175*i, false, false, rend));
+					if(v[i][j] > 512)
+						textSize =  65;
+					if(v[i][j] > 64)
+						textSize = 95;
+					
+                    vPrism.push_back(new pTextObject(std::string(std::to_string(i+1) + "_" + std::to_string(j+1)).c_str(), std::to_string(v[i][j]).c_str(), "assets/fonts/helvetica_neue_65.ttf", textSize, textColor, 175*j, 175*i, false, false, rend));
                 }
             }
     }
