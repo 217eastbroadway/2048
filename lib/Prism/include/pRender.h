@@ -6,10 +6,13 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
-namespace pRender{
-    SDL_Texture* makeTextureFromImage(SDL_Renderer* renderer, std::string textureDir);
+extern SDL_Renderer* renderer;
+extern SDL_Window* win;
 
-    void copyToRender(SDL_Renderer *renderer, SDL_Texture* srcTexture, SDL_Rect *destRectangle);
+namespace pRender{
+    SDL_Texture* makeTextureFromImage(std::string textureDir);
+
+    void copyToRender(SDL_Texture* srcTexture, SDL_Rect *destRectangle);
 
     template <typename T>
     void moveQueue(std::vector<T>& vT, int currentPos, int newPos){
@@ -34,8 +37,8 @@ namespace pRender{
         if(currentPos == newPos)
             return;
     }
-    
-    void clearWindow(SDL_Renderer *renderer);
 
-    void updateWindow(SDL_Renderer *renderer);
+    void clearWindow();
+
+    void updateWindow();
 }

@@ -1,7 +1,7 @@
 #include "gameRender.h"
 
 namespace gameRender{
-    void updateGraphic(std::vector<pObject*> &vPrism, int v[4][4], int width, int height, SDL_Renderer* rend){
+    void updateGraphic(std::vector<pObject*> &vPrism, int v[4][4], int width, int height){
         for(int i = 0; i < height; i++)
             for(int j = 0; j < width; j++){
                 int index = getObjectIndexByID(vPrism, std::string(std::to_string(i+1) + "_" + std::to_string(j+1)).c_str());
@@ -33,7 +33,7 @@ namespace gameRender{
 					else if(v[i][j] > 64)
 						textSize = 95;
 					
-                    vPrism.push_back(new pTextObject(std::string(std::to_string(i+1) + "_" + std::to_string(j+1)).c_str(), std::to_string(v[i][j]).c_str(), "assets/fonts/helvetica_neue_65.ttf", textSize, textColor, 20 + (162 * j), 20 + (162 * i), false, false, rend));
+                    vPrism.push_back(new pTextObject(std::string(std::to_string(i+1) + "_" + std::to_string(j+1)).c_str(), std::to_string(v[i][j]).c_str(), "assets/fonts/helvetica_neue_65.ttf", textSize, textColor, 20 + (162 * j), 20 + (162 * i), false, false));
 					SDL_Rect tempRect = vPrism[vPrism.size()-1]->getRect();
 					vPrism[vPrism.size()-1]->setPos(((162 * (j+1)) - (162/2)) - (tempRect.w/2), ((162 * (i+1)) - (162/2)) - (tempRect.h/2) + 13);
                 }

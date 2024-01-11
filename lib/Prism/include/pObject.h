@@ -8,7 +8,6 @@
 
 class pObject{
     protected:
-        SDL_Renderer* rend;
         SDL_Texture* texture;
         SDL_Rect rect;
 
@@ -21,7 +20,7 @@ class pObject{
         bool isHoverable;
 
     public:
-        pObject(const char* id, const char* textureDir, int w, int h, int posX, int posY, bool isMovable, bool isHoverable, SDL_Renderer* rend); //Base constructor
+        pObject(const char* id, const char* textureDir, int w, int h, int posX, int posY, bool isMovable, bool isHoverable); //Base constructor
         pObject(); //Default constructor
 
         pObject(const pObject& copy); //Copy constructor
@@ -45,6 +44,8 @@ class pObject{
         void setPos(int newx, int newy);
 
         void update();
+
+        static void updateRenderer(std::vector<pObject*> &vPrism);
 };
 
 class pTextObject : public pObject{
@@ -55,7 +56,7 @@ class pTextObject : public pObject{
         SDL_Color textColor;
 
     public:
-        pTextObject(const char* id, const char* text, const char* fontDir, int fontSize, SDL_Color textColor, int posX, int posY, bool isMovable, bool isHoverable, SDL_Renderer* rend);
+        pTextObject(const char* id, const char* text, const char* fontDir, int fontSize, SDL_Color textColor, int posX, int posY, bool isMovable, bool isHoverable);
         pTextObject(const pTextObject &copy);
         ~pTextObject();
 

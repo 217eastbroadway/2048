@@ -28,3 +28,6 @@ randGeneration.o: src/logic/randGeneration.cpp
 #RENDER
 gameRenderUpdate.o: src/render/gameRenderUpdate.cpp
 	$(CC) src/render/gameRenderUpdate.cpp -I$(INCLUDEPATH) -c
+
+clean:
+	rm *.o

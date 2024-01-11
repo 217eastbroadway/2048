@@ -5,28 +5,25 @@
 #include "logic/gameLogic.h"
 #include "render/gameRender.h"
 
-void initGame(int v[4][4], std::vector<pObject*> &vPrism, SDL_Renderer* rend){
+void initGame(int v[4][4], std::vector<pObject*> &vPrism){
 	gameLogic::generateNewCell(v, 4, 4, 0);
 	gameLogic::generateNewCell(v, 4, 4, 15);
 	
-    gameRender::updateGraphic(vPrism, v, 4, 4, rend);
+    gameRender::updateGraphic(vPrism, v, 4, 4);
 }
 
 int main(){
-    SDL_Renderer* rend;
-    SDL_Window* win;
-
-    initPrism(win, rend, "assets/config.psconfig");
+    initPrism("assets/config.psconfig");
 
     std::vector<pObject*> vPrism;
-    pLoader::loadPack("assets/mainlevel.pspkg", vPrism, rend);
+    pLoader::loadPack("assets/mainlevel.pspkg", vPrism);
 
     int v[4][4];
     for(int i = 0; i < 4; i++)
         for(int j = 0; j < 4; j++)
             v[i][j] = 0;
 
-    initGame(v, vPrism, rend);
+    initGame(v, vPrism);
 
     bool userQuit = false;
     while(!userQuit){
@@ -40,35 +37,32 @@ int main(){
                     case SDLK_UP:
                         if(gameLogic::updateGameMatrix(v, 4, 4, Up))
                             gameLogic::generateNewCell(v, 4, 4, 15);
-                        gameRender::updateGraphic(vPrism, v, 4, 4, rend);
+                        gameRender::updateGraphic(vPrism, v, 4, 4);
                         break;
 
                     case SDLK_DOWN:
                         if(gameLogic::updateGameMatrix(v, 4, 4, Down))
                             gameLogic::generateNewCell(v, 4, 4, 15);
-                        gameRender::updateGraphic(vPrism, v, 4, 4, rend);
+                        gameRender::updateGraphic(vPrism, v, 4, 4);
                         break;
 
                     case SDLK_LEFT:
                         if(gameLogic::updateGameMatrix(v, 4, 4, Left))
                             gameLogic::generateNewCell(v, 4, 4, 15);
-                        gameRender::updateGraphic(vPrism, v, 4, 4, rend);
+                        gameRender::updateGraphic(vPrism, v, 4, 4);
                         break;
 
                     case SDLK_RIGHT:
                         if(gameLogic::updateGameMatrix(v, 4, 4, Right))
                             gameLogic::generateNewCell(v, 4, 4, 15);
 
-                        gameRender::updateGraphic(vPrism, v, 4, 4, rend);
+                        gameRender::updateGraphic(vPrism, v, 4, 4);
                         break;
                 }
             }
         }
 
-        pRender::clearWindow(rend);
-            for(auto obj : vPrism)
-                obj->update();
-        pRender::updateWindow(rend);
+        pObject::updateRenderer(vPrism);
         SDL_Delay(125);
     }
 

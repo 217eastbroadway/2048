@@ -8,7 +8,7 @@
 #define PRISMTEXTWHITE {255, 255, 255}
 
 namespace pText{
-    SDL_Texture* textToTexture(const char* text, TTF_Font* font, const SDL_Color textColor, SDL_Renderer* rend);
+    SDL_Texture* textToTexture(const char* text, TTF_Font* font, const SDL_Color textColor);
 
     void getFontSize(const char* text, TTF_Font* font, int* width, int* height);
 }
