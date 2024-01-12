@@ -14,6 +14,8 @@ namespace gameLogic{
                             else if(v[j][i] == v[x][i]){
                                 v[x][i] *= 2;
                                 v[j][i] = 0;
+
+                                j++;
                             }
                         }
 
@@ -38,6 +40,8 @@ namespace gameLogic{
                             else if(v[j][i] == v[x][i]){
                                 v[x][i] *= 2;
                                 v[j][i] = 0;
+                                
+                                j--;
                             }
                         }
 
@@ -62,6 +66,8 @@ namespace gameLogic{
                             else if(v[i][j] == v[i][x]){
                                 v[i][x] *= 2;
                                 v[i][j] = 0;
+
+                                j++;
                             }
                         }
 
@@ -86,6 +92,8 @@ namespace gameLogic{
                             else if(v[i][j] == v[i][x]){
                                 v[i][x] *= 2;
                                 v[i][j] = 0;
+
+                                j--;
                             }
                         }
 
