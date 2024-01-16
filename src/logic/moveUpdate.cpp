@@ -15,11 +15,12 @@ namespace gameLogic{
                                 v[x][i] *= 2;
                                 v[j][i] = 0;
 
-                                j++;
+                                j = x;
+                                break;
                             }
                         }
 
-                for(int i = 0; i < 4; i++)
+               for(int i = 0; i < 4; i++)
                     for(int j = 0; j < 4; j++)
                         if(v[j][i] == 0)
                             for(int x = j+1; x < 4; x++)
@@ -40,8 +41,9 @@ namespace gameLogic{
                             else if(v[j][i] == v[x][i]){
                                 v[x][i] *= 2;
                                 v[j][i] = 0;
-                                
-                                j--;
+
+                                j = x;
+                                break;
                             }
                         }
 
@@ -56,7 +58,7 @@ namespace gameLogic{
                                     break;
                                 }
                 break;
-            
+
             case Left:
             	for(int i = 0; i < 4; i++)
                     for(int j = 0; j < 4; j++)
@@ -67,7 +69,8 @@ namespace gameLogic{
                                 v[i][x] *= 2;
                                 v[i][j] = 0;
 
-                                j++;
+                                j = x;
+                                break;
                             }
                         }
 
@@ -93,7 +96,8 @@ namespace gameLogic{
                                 v[i][x] *= 2;
                                 v[i][j] = 0;
 
-                                j--;
+                                j = x;
+                                break;
                             }
                         }
 
