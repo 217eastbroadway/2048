@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -lPrism -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -static-libstdc++ -static-libgcc -Wl,-Bstatic -lstdc++ -lpthread -Wl,-Bdynamic -O2 -s
+CFLAGS = -lPrism -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -static-libstdc++ -static-libgcc -Wl,-Bstatic -lstdc++ -lpthread -Wl,-Bdynamic -O2 -s -mwindows
 INCLUDEPATH = lib/Prism/include
 LIBPATH = lib/Prism/lib
 BUILDNAME = build/game

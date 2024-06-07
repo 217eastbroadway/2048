@@ -7,5 +7,5 @@ void initPrism(const char* configFile){
     filein >> x;
     filein >> y;
 
-    pWindow::createWindow(x, y, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, "2048 - [PRISM 1.0] [DEV_ALPHA]");
+    pWindow::createWindow(x, y, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, "2048 | Prism Engine");
 }
