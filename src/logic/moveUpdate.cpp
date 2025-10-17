@@ -116,4 +116,24 @@ namespace gameLogic{
 
         return hasMoved;
     }
+
+    bool isGameLost(int v[4][4]) {
+        int vCopy1[4][4], vCopy2[4][4], vCopy3[4][4], vCopy4[4][4];
+
+        for(int i = 0; i < 4; i++)
+            for(int j = 0; j < 4; j++) {
+                vCopy1[i][j] = v[i][j];
+                vCopy2[i][j] = v[i][j];
+                vCopy3[i][j] = v[i][j];
+                vCopy4[i][j] = v[i][j];
+            }
+
+        if (!updateGameMatrix(vCopy1, 4, 4, Up) && 
+            !updateGameMatrix(vCopy2, 4, 4, Up) && 
+            !updateGameMatrix(vCopy3, 4, 4, Up) && 
+            !updateGameMatrix(vCopy4, 4, 4, Up))
+            return false;
+        else
+            return true;
+    }
 }
